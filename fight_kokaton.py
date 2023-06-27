@@ -140,13 +140,16 @@ class Beam:
         screen.blit(self.img, self.rct)
 
 class Explosion:
+    """
+    爆発エフェクトに関するクラス
+    """
     def __init__(self, bomb : Bomb):
         self.img = pg.transform.rotozoom(pg.image.load(f"ex03/fig/explosion.gif"), 0, 2.0)  #基本
         img_rv = pg.transform.flip(self.img, True, True)  #反転
-        self.imgs = [self.img, img_rv]
-        self.rct = self.img.get_rect()
-        self.rct.center = bomb.rct.center
-        self.life = 2
+        self.imgs = [self.img, img_rv]  #二つの画像をリストに格納
+        self.rct = self.img.get_rect()  
+        self.rct.center = bomb.rct.center  #爆発した爆弾のrct.centerに基づき，生成場所を決定
+        self.life = 2  #表示時間の初期設定
     
     def update(self, screen : pg.surface):
         self.life -= 1
