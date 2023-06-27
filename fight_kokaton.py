@@ -7,7 +7,7 @@ import pygame as pg
 
 WIDTH = 1600  # ゲームウィンドウの幅
 HEIGHT = 900  # ゲームウィンドウの高さ
-
+a = 0
 
 def check_bound(obj_rct: pg.Rect) -> tuple[bool, bool]:
     """
