@@ -141,7 +141,7 @@ class Beam:
 
 class Explosion:
     def __init__(self, bomb : Bomb):
-        self.img = pg.transform.rotozoom(pg.image.load(f"ex03/fig/explosion.png"), 0, 2.0)  #基本
+        self.img = pg.transform.rotozoom(pg.image.load(f"ex03/fig/explosion.gif"), 0, 2.0)  #基本
         img_rv = pg.transform.flip(self.img, True, True)  #反転
         self.imgs = [self.img, img_rv]
         self.rct = self.img.get_rect()
@@ -192,19 +192,9 @@ def main():
                     pg.display.update()
                     exps.append(Explosion(bomb))           
 
-        
-
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
         bombs = [bomb for bomb in bombs if bomb is not None]
-
-        """
-        bombs_a = bombs.copy()
-        bombs=[]
-        for bomb in bombs_a:
-            if bomb is not None:
-                bombs.append(bomb)
-        """
 
         for bomb in bombs:
             bomb.update(screen)
